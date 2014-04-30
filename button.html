@@ -10,7 +10,9 @@
     <body>
 		<p id="foo">DONT touch it</p>
 		<input type="button" onclick="changeText()" value="click me" />
-
+		<p id="foo2">give me a body</p>
+		<input type="button" onclick="changeText()" value="click me" />
+		
 
 		<script type="text/javascript">
 			function changeText() {
@@ -20,6 +22,11 @@
 			
 			}
 		</script>
-
+		
+		<script type="text/javascript">
+			function changeText() {
+				$("#foo2").html("")
+			}
+		</script>
     </body>
 </html>
