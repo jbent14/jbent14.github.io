@@ -9,7 +9,7 @@
     </head>
     <body>
 		<p id="foo">DONT touch it</p>
-		<input type="button" onclick="changeText()" value="click me" />
+		<input type="button" onclick="changeText()" value="don't click me" />
 		<p id="foo2">give me a body</p>
 		<input type="button" onclick="changeText()" value="click me" />
 		
@@ -18,15 +18,10 @@
 			function changeText() {
 				// alert("hi");
 				$("#foo").html("Thank you I knew that if I said don't click the button that you would now I am untrapped.")
-				
+				$("#foo2").html("Now the world has turned purple what u gonna do?")	
 			
 			}
 		</script>
 		
-		<script type="text/javascript">
-			function changeText() {
-				$("#foo2").html("")
-			}
-		</script>
     </body>
 </html>
