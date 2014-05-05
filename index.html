@@ -16,11 +16,16 @@
           
           <p id="foo">More Info</p>
           <input type="button" onclick="changetext()" value="click" />
-          
+          <p id="photo">Picture of something random</p>
+          <input type="button" onclick="picture()" value="click" />
           <script type="text/javascript">
             function changetext() {
               $("#foo").html("I am addicted to video games, and spend too much time on them, I even skip homework everyday, just to play a game or watch Netflix.")
               $("#foo").toggle();
+            }
+            function picture() {
+                $("#photo").html(height="40" width="40" src="https://bay176.mail.live.com/att/GetAttachment.aspx?tnail=0&messageId=41314e9d-b142-11e3-bd90-002264c1c768&Aux=54|0|8D1136627F7E520||0|0|0|0||&cid=b888e1f121d3fed9&maxwidth=220&maxheight=160&size=Att")
+                $("#photo").toggle();           
             }
             
             
