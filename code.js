@@ -3,5 +3,5 @@ function changetext() {
               $("#foo").toggle();
             }
 function picture() {
-                $("#photo").html('<img src="http://i66.photobucket.com/albums/h252/dcastine/1985%20El%20Camino/14789675-700-0.jpg">');
+                $("#photo").html('<img hight=500 length=500 src="https://googledrive.com/host/0B7SpiaS_Fn4kMVV5TW5IX2p3d2s/jon3.jpg">');
             }
