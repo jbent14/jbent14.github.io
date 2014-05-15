@@ -5,3 +5,7 @@ function changetext() {
 function picture() {
                 $("#photo").html('<img hight=500 length=500 src="https://googledrive.com/host/0B7SpiaS_Fn4kMVV5TW5IX2p3d2s/jon3.jpg">');
             }
+function one() {
+				$("farmers").html("fill with info");
+				$("farmers").toggle();
+			}
