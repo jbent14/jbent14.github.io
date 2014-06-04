@@ -7,6 +7,7 @@
       {
         size(400, 400); 
         noStroke();
+        //colorMode(RGB, 255, 255, 255, 100);
         frameRate(40);
       }
     strokeWeight(2);  
@@ -47,14 +48,17 @@
 
       
       };
+      var showtext = function() {
+        fill(20, 18, 18);
         var Pi = (inside / total * 4);
         text(Pi, 225, 225);
         text("Pi at this time is:", 200, 200);
       };
-      console.log("Pi is:" + "" + Pi)
+      showtext()
     </script>
   </head>
   <body>
     <canvas id="targetcanvas" width="400"  height="400"></canvas>
+
   </body>
 </html>
