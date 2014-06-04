@@ -3,18 +3,15 @@
   <head>
   <script data-require="processing.js@*" data-semver="1.4.1" src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing.min.js"></script>
     <script type="text/processing" data-processing-target="targetcanvas">
-      
+    
+    size(400,400);  
     strokeWeight(2);  
     var a = 0;
     var b = 0;
     var c = 1;
     var total = 0;
     var inside = 0;
-    void mouseClicked() {
-      fill(128,128,128);
-      rect(200,200-20,100,50)
-      showtext();
-      noLoop();
+
     }
     
     void draw()
