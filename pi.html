@@ -1,0 +1,68 @@
+<html>
+
+  <head>
+  <script data-require="processing.js@*" data-semver="1.4.1" src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing.min.js"></script>
+    <script type="text/processing" data-processing-target="targetcanvas">
+      void setup() 
+      {
+        size(400, 400); 
+        noStroke();
+        //colorMode(RGB, 255, 255, 255, 100);
+        frameRate(40);
+      }
+    strokeWeight(2);  
+    var a = 0;
+    var b = 0;
+    var c = 1;
+    var total = 0;
+    var inside = 0;
+    void mouseClicked() {
+      fill(128,128,128);
+      rect(200,200-20,100,50)
+      showtext();
+      noLoop();
+    }
+    
+    void draw()
+    {
+ 
+      strokeWeight(5);
+    
+      var x = random(0, 400);
+      var y = random(0,400);
+      var z = dist(200, 200, x, y);
+      
+      
+      strokeWeight(3);
+  
+      if (z < 200){
+          fill(25, 0, 204);
+          noStroke();
+          ellipse(x, y, 5, 5);
+          a += 1;
+          inside += 1;
+      }
+      else {
+          fill(15, 500, 18);
+          noStroke();
+          ellipse(x, y, 5, 5);
+          b += 1
+      }
+    
+      total += 1;
+
+      
+      };
+      void showtext() {
+        fill(20, 18, 18);
+        var Pi = (inside / total * 4);
+        text(Pi, 225, 225);
+        text("Pi at this time is:", 200, 200);
+      };
+    </script>
+  </head>
+  <body>
+    <canvas id="targetcanvas" width="400"  height="400"></canvas>
+
+  </body>
+</html>
