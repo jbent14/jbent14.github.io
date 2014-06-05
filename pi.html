@@ -20,7 +20,7 @@
     
     void draw()
     {
- 
+    
       strokeWeight(5);
     
       var x = random(0, 400);
@@ -36,6 +36,7 @@
           ellipse(x, y, 5, 5);
           a += 1;
           inside += 1;
+
       }
       else {
           fill(15, 500, 18);
@@ -48,11 +49,13 @@
 
       
       };
-      var showtext = function() {
-        fill(20, 18, 18);
-        var Pi = (inside / total * 4);
-        text(Pi, 225, 225);
-        text("Pi at this time is:", 200, 200);
+
+        textSize(20);
+        rect(300,342,71,40);
+        fill(255, 0, 0);
+        var pi = (inside*4/total);
+        text(pi,315,373);
+          
       };
       showtext()
     </script>
