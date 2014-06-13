@@ -3,18 +3,10 @@
   <head>
   <script data-require="processing.js@*" data-semver="1.4.1" src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing.min.js"></script>
     <script type="text/processing" data-processing-target="targetcanvas">
-        
-    </script>
-  </head>
-  <body>
-    <canvas id="myCanvas" width="500" height="500">
-$(document).ready(function () {
+        $(document).ready(function () {
     var canvas = $("#myCanvas").get(0);
     var context = canvas.getContext("2d");
   
-	// requestAnimationFrame polyfill by Erik Moller
-	// fixes from Paul Irish and Tino Zijdel
-	// Source and revisions: https://gist.github.com/1579671
 
 	(function() {
       var lastTime = 0;
@@ -39,8 +31,6 @@ $(document).ready(function () {
             clearTimeout(id);
           };
 	}());
-	// end requestAnimationFrame polyfill
-
 	var rectY=200, rectW=40;
 	var rectX = -rectW;
 	var velocity = 1;
@@ -71,30 +61,17 @@ $(document).ready(function () {
 	}
 
     var playAnimation = true;
-    var startButton = $("#startAnimation");
-    var stopButton = $("#stopAnimation");
+
   
-    startButton.click(function() {        
-        
-      if (!playAnimation) {
-          playAnimation = true;
-          requestAnimationFrame(draw);
-		}
-        
-    });
-  
-    stopButton.click(function() {        
-        playAnimation = false;
-        cancelAnimationFrame(globalID);
 
     });
-	// Initial call:
+	
 	if (playAnimation){
 	globalID = requestAnimationFrame(draw);}
   
 });
 
-//// finished coordinates capture
+
   
   function onKeyboardEvent(event) {
     switch (event.keyCode) {
@@ -115,6 +92,10 @@ $(document).ready(function () {
     }
   }
   window.addEventListener('keydown', onKeyboardEvent, false);
+    </script>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="500" height="500">
     </canvas>
 
   </body>
