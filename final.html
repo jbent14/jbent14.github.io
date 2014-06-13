@@ -1,0 +1,121 @@
+<html>
+
+  <head>
+  <script data-require="processing.js@*" data-semver="1.4.1" src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing.min.js"></script>
+    <script type="text/processing" data-processing-target="targetcanvas">
+        
+    </script>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="500" height="500">
+$(document).ready(function () {
+    var canvas = $("#myCanvas").get(0);
+    var context = canvas.getContext("2d");
+  
+	// requestAnimationFrame polyfill by Erik Moller
+	// fixes from Paul Irish and Tino Zijdel
+	// Source and revisions: https://gist.github.com/1579671
+
+	(function() {
+      var lastTime = 0;
+      var vendors = ['ms', 'moz', 'webkit', 'o'];
+      for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+        window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+      }
+      
+      if (!window.requestAnimationFrame)
+          window.requestAnimationFrame = function(callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id= window.setTimeout(function() { callback(currTime + timeToCall); },
+                                      timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+          };
+      
+      if (!window.cancelAnimationFrame)
+          window.cancelAnimationFrame = function(id) {
+            clearTimeout(id);
+          };
+	}());
+	// end requestAnimationFrame polyfill
+
+	var rectY=200, rectW=40;
+	var rectX = -rectW;
+	var velocity = 1;
+	var accel = 0.1;
+				
+	blank();
+
+	function blank() {
+		context.fillStyle = "#FFF7F1";
+		context.fillRect(0,0,context.canvas.width, context.canvas.height);
+			}
+			
+	function draw() {
+      globalID = requestAnimationFrame(draw);
+      blank();
+      rectX += velocity;
+      context.fillStyle = "#96CEB4";
+		context.lineWidth = 3; 
+		context.fillRect(rectX,rectY,rectW,rectW);
+		
+		if (velocity < 10) {
+          velocity += accel;
+		}
+
+		if (rectX > context.canvas.width) {
+          rectX=-rectW;
+      }
+	}
+
+    var playAnimation = true;
+    var startButton = $("#startAnimation");
+    var stopButton = $("#stopAnimation");
+  
+    startButton.click(function() {        
+        
+      if (!playAnimation) {
+          playAnimation = true;
+          requestAnimationFrame(draw);
+		}
+        
+    });
+  
+    stopButton.click(function() {        
+        playAnimation = false;
+        cancelAnimationFrame(globalID);
+
+    });
+	// Initial call:
+	if (playAnimation){
+	globalID = requestAnimationFrame(draw);}
+  
+});
+
+//// finished coordinates capture
+  
+  function onKeyboardEvent(event) {
+    switch (event.keyCode) {
+      case 38:
+        console.log("up!");
+        break;
+      case 40:
+        console.log("down!");
+        break;
+      case 37:
+        console.log("left!");
+        break;
+      case 39:
+        console.log("right!");
+        break;
+      default:
+        console.log(event.keyCode);
+    }
+  }
+  window.addEventListener('keydown', onKeyboardEvent, false);
+    </canvas>
+
+  </body>
+</html>
