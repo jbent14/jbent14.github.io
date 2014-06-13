@@ -3,7 +3,7 @@
   <head>
   <script data-require="processing.js@*" data-semver="1.4.1" src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing.min.js"></script>
     <script type="text/processing" data-processing-target="targetcanvas">
-        $(document).ready(function () {
+       $(document).ready(function () {
     var canvas = $("#myCanvas").get(0);
     var context = canvas.getContext("2d");
   
@@ -31,18 +31,20 @@
             clearTimeout(id);
           };
 	}());
+
+
 	var rectY=200, rectW=40;
 	var rectX = -rectW;
 	var velocity = 1;
 	var accel = 0.1;
-				
+
 	blank();
 
 	function blank() {
 		context.fillStyle = "#FFF7F1";
 		context.fillRect(0,0,context.canvas.width, context.canvas.height);
 			}
-			
+
 	function draw() {
       globalID = requestAnimationFrame(draw);
       blank();
@@ -50,7 +52,7 @@
       context.fillStyle = "#96CEB4";
 		context.lineWidth = 3; 
 		context.fillRect(rectX,rectY,rectW,rectW);
-		
+
 		if (velocity < 10) {
           velocity += accel;
 		}
@@ -61,8 +63,21 @@
 	}
 
     var playAnimation = true;
-
+    var startButton = $("#startAnimation");
+    var stopButton = $("#stopAnimation");
   
+    startButton.click(function() {        
+        
+      if (!playAnimation) {
+          playAnimation = true;
+          requestAnimationFrame(draw);
+		}
+        
+    });
+  
+    stopButton.click(function() {        
+        playAnimation = false;
+        cancelAnimationFrame(globalID);
 
     });
 	
