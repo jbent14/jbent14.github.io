@@ -4,20 +4,37 @@
   <link rel="stylesheet" type="text/css" href="/final.css">
   <script data-require="processing.js@*" data-semver="1.4.1" src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing.min.js"></script>
     <script type="text/processing" data-processing-target="targetcanvas">
-// I went over my head with this project and couldnt get it working... I'll continue to try to finish.
-function displayTime() {
-    var elt = document.getElementById("clock");  
-    var now = new Date();                        
-    elt.innerHTML = now.toLocaleTimeString();    
-    setTimeout(displayTime, 1000);              
+
+function displayTime ( )
+{
+  var time = new Date ( );
+
+  var hours = time.getHours ( );
+  var minutes = time.getMinutes ( );
+  var seconds = time.getSeconds ( );
+  minutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+  seconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+  var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+
+
+  hours = ( hours > 12 ) ? hours - 12 : hours;
+
+
+  hours = ( hours == 0 ) ? 12 : hours;
+
+
+  var timeString = hours + ":" + minutes + ":" + seconds + " " + timeOfDay;
+
+
+  document.getElementById("clock").firstChild.nodeValue = timeString;            
 }
 
-window.onload = displayTime;  
+  
     
     </script>
   </head>
   <body>
-<h1>Digital Clock</h1>    
+<h1>Clock</h1>    
 <span id="clock"></span>
 
   </body>
