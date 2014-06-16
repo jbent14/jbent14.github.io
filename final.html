@@ -10,12 +10,19 @@
         var time = new Date ( );
 
         var hours = time.getHours ( );
+        
         var minutes = time.getMinutes ( );
+        
         var seconds = time.getSeconds ( );
-        minutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
-        seconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
-        var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+        
+        minutes = ( minutes < 10 ? "0" : "" ) + minutes;
+        
+        seconds = ( seconds < 10 ? "0" : "" ) + seconds;
+        
+        var timeOfDay = ( hours < 12 ) ? "AM" : "PM";
+        
         hours = ( hours > 12 ) ? hours - 12 : hours;
+        
         hours = ( hours == 0 ) ? 12 : hours;
 
         var timeString = hours + ":" + minutes + ":" + seconds + " " + timeOfDay;
