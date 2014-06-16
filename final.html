@@ -4,7 +4,11 @@
   <link rel="stylesheet" type="text/css" href="/final.css">
   <script data-require="processing.js@*" data-semver="1.4.1" src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing.min.js"></script>
     <script type="text/processing" data-processing-target="targetcanvas">
-
+      function init ( )
+      {
+        timeDisplay = document.createTextNode ( "" );
+        document.getElementById("clock").appendChild ( timeDisplay );
+        }
       function displayTime ( )
       {
         var time = new Date ( );
